@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ink: #05060a;
+  --neural: #4f8cff;
+  --synapse: #8b5cf6;
+  --signal: #22d3ee;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #24344d var(--ink);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--ink);
+  color: #f8fafc;
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  overflow-x: hidden;
+  /* The canvas is fixed behind; the page itself scrolls normally. */
+  min-height: 100vh;
+}
+
+@layer components {
+  .glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+::selection {
+  background: var(--signal);
+  color: var(--ink);
+}
+
+/* Respect the OS setting — kill the smooth scroll glide, the 3D still runs. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
