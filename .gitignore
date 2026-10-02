@@ -12,11 +12,15 @@ dist
 dist-ssr
 *.local
 
-# Preview/build logs captured when running the dev server or deploy locally.
+# Preview/build/dev-server logs captured when running Vite locally.
 p*.txt
 b*.txt
 a.txt
 push*.txt
+dev-*.txt
+shot*.txt
+inst-*.txt
+tc*.txt
 
 # Editor directories and files
 .vscode/*
